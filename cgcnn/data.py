@@ -559,6 +559,7 @@ class EntryData(Dataset):
             nbr_fea_idx = torch.LongTensor(nbr_fea_idx)
             target = torch.Tensor([float(target)])
             self.data_computed.append(((atom_fea, nbr_fea, nbr_fea_idx), target, mat_id))
+            pickle.dump(self.data_computed, open(path_data+"computed","wb"), protocol=4)
         del data
 
     def __len__(self):
